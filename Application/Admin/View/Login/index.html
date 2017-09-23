@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script type="text/javascript" src="__ROOT__/Public/Admin/assets/js/jquery-1.8.1.min.js"></script>
+    <title>{$title}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="__ROOT__/Public/Admin/Css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="__ROOT__/Public/Admin/Css/signin.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<!--     <script src="Application/Admin/View/Index/assets/js/ie-emulation-modes-warning.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container">
+      <form class="form-signin" method="post" action="{:U('Login/index')}">
+        <h2 class="form-signin-heading text-center">管理后台</h2>
+        <h2 class="form-signin-heading text-center">请登录</h2>
+        <label for="inputEmail" class="sr-only">账户</label>
+        <input type="text" id="inputEmail" name="user" class="form-control" placeholder="账户" required autofocus>
+        <div style="height: 10px"></div>
+
+        <label for="inputPassword" class="sr-only">密码</label>
+        <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="密码" required>
+        <div class="checkbox" style="height:10px"></div>
+
+        <div class="top15 captcha" id="captcha-container">  
+        <input name="verify" width="50%" height="50" class="captcha-text form-control" placeholder="验证码" type="text">                 
+        <img width="50%" class="left15" height="50" alt="验证码" src="{:U('Admin/Login/verify_c',array())}" title="点击刷新" >  
+        </div>  
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><p class="h2" style="padding:0px;margin:0px;"><strong>登&nbsp;录</strong></p></button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<!--     <script src="Application/Admin/View/Index/assets/js/ie10-viewport-bug-workaround.js"></script> -->
+  </body>
+
+<script>
+window.onload = function(){
+  var captcha_img = $('#captcha-container').find('img')  
+  var verifyimg = captcha_img.attr("src");  
+  captcha_img.attr('title', '点击刷新');  
+  captcha_img.click(function(){  
+    if( verifyimg.indexOf('?')>0){  
+      $(this).attr("src", verifyimg+'&random='+Math.random());  
+    }else{  
+      $(this).attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());  
+    }  
+  });
+}  
+</script>
+</html>

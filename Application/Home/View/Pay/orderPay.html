@@ -1,0 +1,56 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<title>{$title}</title>
+<script>
+	var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+	function fenxiaopay(){
+		$("#fm").submit();
+	}
+</script>
+	<style type="text/css">
+	@media screen and (min-width:320px) and (max-width:360px){
+		html{
+			font-size:12px;
+		}
+	}
+	 @media screen and (min-width:360px) and (max-width:385px){
+		html{
+			font-size:14px;
+		}
+	}
+		*{
+			margin:0;
+			padding:0;
+			font-family: '微软雅黑';
+		}
+		.zhifuwuyuan_body{
+			background-size:100% 100%;
+			padding:.1rem .5rem;
+			color:#ffffff;
+			font-size:1rem;
+			text-shadow: none;
+    		text-align: center;
+		}
+	</style>
+</head>
+<body class="zhifuwuyuan_body">
+    <div style="margin-top:80%;width:100%;text-align: center;font-size: 20px;"><font color="#000"><b>合计金额：<span style="color:#F5E828;font-size:30px">{$money}</b></font><br/><br/></div>
+
+	<div>
+		<form action="http://zzj00300003.com/dlteach/Wxpay2/jsapi.php" method="post" id="fm">
+			<input type="hidden" name="body" value="{$body}">
+			<input type="hidden" name="num" value="{$money}">
+			<input type="hidden" name="openid" value="{$openid}">
+			<input type="hidden" name="success_url" value="{$success_url}">
+		</form>
+		<button style="margin-top:20px; width:210px; height:50px; border-radius: 15px;background-color:#FE6714; border:0px #FE6714 solid; cursor: pointer;  color:white;  font-size:16px;" type="button" onclick="fenxiaopay()" >立即支付</button>
+	</div>
+</body>
+</html>

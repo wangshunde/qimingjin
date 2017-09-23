@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>岗位</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" src="__PUBLIC__/Admin/Js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+        h1{text-align: center;margin-bottom: 20px;}
+        div{
+            width:100%;
+        }
+        img{width: 200px;display: inline-block;}
+        #fm{width: 700px;margin: 0 auto;}
+        textarea{display:inline-block;vertical-align:middle;}
+    </style>
+</head>
+<body>
+<div>
+    <h1>岗位</h1>
+    <form action="{:U('Work/editAction')}" method="post" id="fm" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{$info.int_id}">
+        <div style="margin-bottom:20px;">
+            <label for="name">单位名称:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" name="name" id="name" value="{$info.vc_name}">
+        </div>
+        <div style="margin-bottom:20px;">
+            <label for="job">岗位名称:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" name="job" id="job" value="{$info.vc_job}">
+        </div>
+        <div style="margin-bottom:20px;">
+            <label for="img">封面图:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <img src="http://zzj00300003.com/dlteach/{$info.vc_img}">
+            <input type="hidden" name="img_o" id="img_o" value="{$info.vc_img}">
+            <input type="file" name="img" id="img">
+        </div>
+        <div style="margin-bottom:20px;">
+            <label for="educational">学历要求:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" name="educational" id="educational" value="{$info.vc_educational}">
+        </div>
+        <div style="margin-bottom:20px;">
+            <label for="major">专业要求:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" name="major" id="major" value="{$info.vc_major}">
+        </div>
+        <div style="margin-bottom:20px;">
+            <label for="describe">岗位描述:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <textarea rows="10" cols="40" name="describe" id="describe">{$info.text_describe}</textarea>
+        </div>
+        <div style="margin-bottom:20px;">
+            <label for="company">公司介绍:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <textarea rows="10" cols="40" name="company" id="company">{$info.text_company}</textarea>
+        </div>
+        
+        <div style="margin-top:20px;text-align:center;"><input type="button" value="修改" style="width:100px;height:30px;" onclick="checkForm()"></div>
+    </form>
+</div>
+<script type="text/javascript">
+
+function checkForm(){
+    var name = $("#name").val();
+    var job = $("#job").val();
+    var educational = $("#educational").val();
+    var major = $("#major").val();
+    var describe = $("#describe").val();
+    var company = $("#company").val();
+    if(name==null || name==''){
+        alert("单位名称为空,请添加!");
+        return false;
+    }else if(job==null || job==''){
+        alert("岗位名称为空,请添加!");
+        return false;
+    }else if(educational==null || educational==''){
+        alert("学历要求为空,请添加!");
+        return false;
+    }else if(major==null || major==''){
+        alert("专业要求为空,请添加!");
+        return false;
+    }else if(describe==null || describe==''){
+        alert("岗位描述为空,请添加!");
+        return false;
+    }else if(company==null || company==''){
+        alert("公司介绍为空,请添加!");
+        return false;
+    }else{
+        $("#fm").submit();
+    }
+}
+</script>
+</body>
+
+</html>

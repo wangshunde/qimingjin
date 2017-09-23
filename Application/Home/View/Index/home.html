@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/home.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/footer.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/Home/js/link.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+	<style>
+	.xinwen .content .news{margin-top: 0.1rem;height:0.9rem;border-bottom: 1px solid #f1f1f1}
+	.xinwen .content .news .word{width:2.25rem;float: left;}
+	.xinwen .content .news .tittle{font-size: 17px;overflow: hidden;height:0.5rem;color:#404040;}
+	.xinwen .content .news .date{font-size: 13px;height:0.2rem;margin-top: 0.1rem;color:#7d7d7d;}
+	.xinwen .content .news .img{height:0.7rem;float: right;width: 1rem;background-size:100% 100%;}
+
+	
+	.zhuanjia .content .person{margin-top: 0.1rem;height:0.9rem;border-bottom: 1px solid #f1f1f1}
+	.zhuanjia .content .person .word{width:2.4rem;float: left;margin-left: 0.1rem;}
+	.zhuanjia .content .person .name{font-size: 17px;height:0.2rem;color:#404040;}
+	.zhuanjia .content .person .info{font-size: 13px;height:0.5rem;margin-top: 0.1rem;color:#7d7d7d;overflow: hidden;}
+	.zhuanjia .content .person .img{height:0.7rem;width: 0.7rem;float: left;background-size:100% 100%;border-radius: 50%;}
+	</style>
+</head>
+<body>
+<!-- 就业指导 -->
+<a href="__APP__/Index/jiuyezhidao">
+<div class="jiuye-out">
+	<div class="jiuye-in">
+		<div>
+			<h5>就业指导</h5>
+			<span>通过经验丰富的咨询师的咨询服务和培训服务，追求对行业岗位预设的准确性和岗位培训的针对性，以实现就业的实效性</span>
+		</div>
+	</div>
+</div>
+</a>
+<!-- 人才成长 -->
+<div class="rencai">
+	<h5>人才成长</h5>
+	<div class="content">
+		<a href="__APP__/Index/xianchangyinan">
+		<div class="left">
+			<p class="tittle">现场疑难</p>
+			<p class="p">现场问题早知道</p>
+			<!-- <div class="photo">
+				<img src="__PUBLIC__/Home/image/four.jpg">
+				<img src="__PUBLIC__/Home/image/four.jpg">
+			</div> -->
+		</div>
+		</a>
+		<a href="__APP__/Index/gangweitisheng">
+		<div class="right">
+			<p class="tittle">岗位提升</p>
+			<p class="p">现在努力&nbsp;未来满意</p>
+			<!-- <div class="photo">
+				<img src="__PUBLIC__/Home/image/four.jpg">
+				<img src="__PUBLIC__/Home/image/four.jpg">
+			</div> -->
+		</div>
+		</a>
+	</div>
+</div>
+
+<!-- 资料查阅 -->
+<div class="ziliao">
+	<h5>资料查阅</h5>
+	<div class="content">
+		<a href="__APP__/Index/gonggongjichu"><div class="left"><p class="p">公共基础</p></div></a>
+		<a href="__APP__/Index/zhuanxiangbufen"><div class="right"><p class="p">专项部分</p></div></a>
+	</div>
+</div>
+
+<!-- 图片广告 -->
+
+<div class="guanggao">
+	<a href="__APP__/Index/guanggao">
+		<div class="content">
+			
+		</div>
+	</a>
+</div>
+
+<!-- 新闻动态 -->
+<div class="xinwen">
+	<h5>新闻动态<a href="__APP__/Index/newsList"><img src="__PUBLIC__/Home/image/home-xinwen.png"></a></h5>
+	<div class="content">
+		<volist name="newRes" id="nr">
+			<a href="__APP__/Index/newsInfo/id/{$nr.int_id}">
+			<div class="news">
+				<div class="word">
+					<div class="tittle">{$nr.vc_title}</div>
+					<div class="date">{$nr.dt_date}</div>
+				</div>
+				<div class="img" style="background-image:url(__ROOT__/{$nr.vc_cover});"></div>
+			</div>
+			</a>
+		</volist>
+		
+	</div>
+</div>
+<!-- 培训专栏 -->
+<div class="zhuanjia">
+	<h5>培训专栏</h5>
+	<div class="content">
+		<volist name="peixunRes" id="px">
+			<a href="__APP__/Index/peixunInfo/id/{$px.int_id}">
+			<div class="person">
+				<div class="img" style="background-image:url(__ROOT__/{$px.vc_photo});"></div>
+				<div class="word">
+					<div class="name">{$px.vc_name}</div>
+					<div class="info">{$px.vc_tag}</div>
+				</div>
+			</div>
+			</a>
+		</volist>
+			
+		
+	</div>
+</div>
+
+<div class="footer">
+    <div class="home" style="background-image:url(__PUBLIC__/Home/image/home2.png);">
+
+    </div>
+    <div class="erweima" style="background-image:url(__PUBLIC__/Home/image/erweima1.png);">
+            
+    </div>
+    <div class="geren" style="background-image:url(__PUBLIC__/Home/image/geren1.png);">
+
+    </div>
+</div>
+<script>
+	//保存用户openid
+	var openid = '{$openid}';
+	localStorage.openid = openid;
+</script>
+</body>
+</html>

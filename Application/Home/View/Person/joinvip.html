@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+	<style>
+	body{font-size: 16px;color: #7f8182;}
+	.taocan{border-bottom: 5px solid #f1f1f1;}
+	.first{border-bottom: 1px solid #f1f1f1;height:0.3rem;line-height: 0.3rem;font-size: 15px;padding: 0 0.2rem;}
+	.con{height:0.5rem;line-height: 0.5rem;border-bottom: 1px solid #f1f1f1;padding: 0 0.2rem;}
+	.word{float: left;display: block;width: 1.6rem;text-align: left;}
+	.money{float: right;display: block;width: 0.4rem;color: #85b2f6;margin-right: 0.1rem;}
+	.sub{float: right;display: block; font-size: 12px;color: #fff;background-color: #85b2f6;border-radius: 0.5rem;border: none;width: 0.8rem;height:0.3rem;margin: 0.1rem auto;} 
+
+	.huiyuan{text-align: center;font-size: 15px;height:2rem;margin: 0.15rem auto;width: 80%;}
+	.huiyuan .left,.huiyuan .right{float: left;width:50%;height:0.8rem;}
+	.huiyuan .left .left-img,.huiyuan .right .right-img{width:0.4rem;height: 0.4rem;background-size: 100% 100%;background-repeat: no-repeat;margin: 0 auto;}
+	.huiyuan .left .left-text,.huiyuan .right .right-text{margin: 0.1rem 0;color:#7f8182;}
+	
+	</style>
+</head>
+<body>
+<div class="taocan">
+	<div class="first">
+		<span>会员套餐</span>
+	</div>
+	<div class="con">
+		<span class="word">一个月会员</span>
+		<a href="__APP__/person/setDingdan?pay=10&num=1"><button class="sub">开通</button></a>
+		<span class="money">￥10</span>
+	</div>
+	<div class="con">
+		<span class="word">三个月会员</span>
+		<a href="__APP__/person/setDingdan?pay=25&num=3"><button class="sub">开通</button></a>
+		<span class="money">￥25</span>
+	</div>
+	<div class="con">
+		<span class="word">六个月会员</span>
+		<a href="__APP__/person/setDingdan?pay=48&num=6"><button class="sub">开通</button></a>
+		<span class="money">￥48</span>
+	</div>
+	<div class="con">
+		<span class="word">十二个月会员</span>
+		<a href="__APP__/person/setDingdan?pay=89&num=12"><button class="sub">开通</button></a>
+		<span class="money">￥89</span>
+	</div>
+</div>
+<div class="tequan">
+	<div class="first">
+		<span>会员特权</span>
+	</div>
+	<div class="huiyuan">
+		<div class="left">
+				<div class="left-img" style="background-image:url(__PUBLIC__/Home/image/person1.png);"></div>
+				<p class="left-text">问题免费查看</p>
+				<div class="left-img" style="background-image:url(__PUBLIC__/Home/image/person3.png);"></div>
+				<p class="left-text">线下培训试听</p>
+			</div>
+			<div class="right">
+				<div class="right-img" style="background-image:url(__PUBLIC__/Home/image/person2.png);"></div>
+				<p class="right-text">工作推荐</p>
+				<div class="right-img" style="background-image:url(__PUBLIC__/Home/image/person4.png);"></div>
+				<p class="right-text">内部资料下载</p>
+			</div>
+	</div>
+</div>	
+
+
+
+</body>
+</html>

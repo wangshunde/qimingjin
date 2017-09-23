@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<!--<script type="text/javascript" src="__ROOT__/Public/Admin/kindeditor/kindeditor.js"></script>-->
+<script type="text/javascript" src="__ROOT__/Public/Admin/assets/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/admin/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/admin/ueditor/ueditor.all.min.js"> </script>
+<script>
+function checkForm(){
+  var type = $("#rtype").val();
+  var content = UE.getEditor('editor').getContent();
+  if(content==null || content==''){
+    alert("内容为空,请添加!");
+  }else if(type==null || type==''){
+    alert("请选择类型！");
+  }else{
+    $("#rcontent").val(content);
+    $("#form").submit();
+  }
+}
+</script>
+<style>
+  .container{width:80%;margin: 0 auto;}
+  .form-h2{text-align: center;}
+  .form-div{width:60%;margin-left: 10px;margin-top: 1%;margin-left: 20%;}
+  .form-div label{vertical-align: top;height:30px;line-height: 30px;}
+  .form-input{width:150px;height:30px;font-size: 14px;}
+  .form-button{width:50px;height:30px;margin:1% auto;display:block;}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <form class="form" method="post" action="{:U('Resource/addAction')}" id="form" enctype='multipart/form-data'>
+    <h2 class="form-h2">资源上传</h2>
+    <div class="form-div">
+      <label for="rname">资源名称</label>
+      <input type="text" id="rname" name="rname" class="form-input" placeholder="" required autofocus>
+    </div>
+    <div class="form-div">
+      <label for="rtype">资源类型</label>
+      <select name="rtype" id="rtype" class="form-input">
+        <volist name="type" id="v">
+          <option value="{$v.vc_type_name}">{$v.vc_type_name}</option>
+        </volist>
+      </select>
+    </div>
+    <div class="form-div">
+      <label for="rcontent">资源内容</label>
+      <textarea name="rcontent" id="rcontent" style="display:none;"></textarea>
+      <script id="editor" name="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+    </div>
+    <div class="form-div">
+      <label for="">封面图片</label>
+      <input type="file" id="rfile" name="rfile">
+    </div>
+    <input class="form-button" type="submit" value="提交" onclick="checkForm()">
+  </form>
+
+</div>
+<script type="text/javascript">
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+    window.UEDITOR_HOME_URL = "__PUBLIC__/ueditor/";
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+    <style>
+        .zhuanjia .content{margin:0.2rem 0.1rem;}
+    	.zhuanjia .content .person{height:0.9rem;border-bottom: 1px solid #f1f1f1}
+        .zhuanjia .content .person .word{width:2.4rem;float: left;margin-left: 0.1rem;}
+        .zhuanjia .content .person .name{font-size: 17px;height:0.35rem;margin-top: 0.1rem;color:#404040;}
+        .zhuanjia .content .person .info{font-size: 13px;height:0.35rem;color:#7d7d7d;overflow: hidden;}
+        .zhuanjia .content .person .img{height:0.7rem;width: 0.7rem;float: left;background-size:100% 100%;border-radius: 50%;}
+        .zhuanjia h5{font-size: 18px;color:#85b2f6;text-align: left;background-size: 0.05rem 0.2rem;padding-left:.1rem;background-image:url(__PUBLIC__/Home/image/home-five.png);background-repeat: no-repeat;background-position: left center;margin: 0.1rem 0;}
+        .jieshao p,.techang p{font-size: 18px;}
+    </style>
+</head>
+<body>
+<!-- 专家 -->
+<div class="zhuanjia">
+    <div class="zhuanjia">
+    <div class="content">
+        <div class="person">
+            <div class="img" style="background-image:url(__ROOT__/{$zhuanjiaRes.vc_photo});"></div>
+             <div class="word">
+                <div class="name">{$zhuanjiaRes.vc_name}</div>
+                <div class="info">{$zhuanjiaRes.vc_job}</div>
+            </div>
+        </div> 
+        <div class="jieshao">
+            <h5>介绍</h5>
+            <p>{$zhuanjiaRes.text_jieshao}</p>
+        </div>
+        <div class="techang">
+            <h5>特长</h5>
+            <p>{$zhuanjiaRes.text_techang}</p>
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>

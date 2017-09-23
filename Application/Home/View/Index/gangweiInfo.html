@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+	<style>
+	body{background-color: #f1f1f1;font-size: 16px;color:#5d6064;}
+	.gangwei{margin-bottom: 0.6rem;}
+	.content{background-color: #fff;width:100%;margin-bottom: 0.1rem;}
+	.top{height:1.2rem;padding: 0 0.2rem;}
+	.left{float: left;}
+	.left .job{height: 0.5rem;line-height: 0.5rem;font-size: 18px;color:#85b2f6;}
+	.left .educational{height:0.25rem;line-height: 0.25rem;font-size: 15px;background-repeat: no-repeat;background-position: left center;background-size: 0.15rem 0.15rem;padding-left: 0.2rem;}
+	.left .major{height:0.25rem;line-height: 0.25rem;font-size: 15px;background-repeat: no-repeat;background-position: left center;background-size: 0.15rem 0.15rem;padding-left: 0.2rem;}
+	.right{float: right;margin-top: 0.4rem;}
+	.right div{padding:0.1rem 0.2rem;background-color: #85b2f6;color: #fff;border-radius: 0.25rem;font-size: 15px;}
+
+	.describe{padding:0 0.2rem;background-color: #fff;margin-bottom: 0.1rem;}
+	.describe div{height:0.5rem;line-height: 0.5rem;font-size: 16px;background-repeat: no-repeat;background-position: left center;background-size: 0.15rem 0.15rem;padding-left: 0.2rem;color:#5d6064;}
+	.describe p{color: #8e9194;font-size: 14px;padding-bottom: 0.1rem;}
+	.describe img{width:100%;}
+	.company{padding:0 0.2rem;background-color: #fff;margin-bottom: 0.1rem;}
+	.company .com{height:0.5rem;line-height: 0.5rem;font-size: 16px;background-repeat: no-repeat;background-position: left center;background-size: 0.15rem 0.15rem;padding-left: 0.2rem;color:#5d6064;}
+	.com-bot{border-top: 1px solid #f1f1f1;height:0.3rem;line-height: 0.3rem;}
+	.company p{color: #8e9194;font-size: 14px;padding-bottom: 0.1rem;}
+	</style>
+</head>
+<body>
+<!-- 岗位 -->
+<div class="gangwei">
+	<div class="content">
+		<div class="top">
+			<div class="left">
+				<div class="job">{$gangweiInfo.vc_job}</div>
+				<div class="educational" style="background-image: url(__PUBLIC__/Home/image/jiuye2.png)">{$gangweiInfo.vc_educational}</div>
+				<div class="major" style="background-image: url(__PUBLIC__/Home/image/jiuye3.png)">{$gangweiInfo.vc_major}</div>
+			</div>
+			<a href="__APP__/Index/zijian/id/{$gangweiInfo.int_id}">
+			<div class="right">
+				<div>推荐自己</div>
+			</div>
+			</a>
+		</div>
+	</div>
+	<div class="describe">
+		<div style="background-image: url(__PUBLIC__/Home/image/jiuye3.png)">岗位描述</div>
+		<p>{$gangweiInfo.text_describe}</p>
+		<img src="{$baseurl}{$gangweiInfo.vc_img}">
+	</div>
+	<div class="company">
+		<div class="com" style="background-image: url(__PUBLIC__/Home/image/jiuye4.png)">公司介绍</div>
+		<div class="com-bot">
+			<div>{$gangweiInfo.vc_name}</div>
+		</div>
+		<p>{$gangweiInfo.text_company}</p>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<!--<script type="text/javascript" src="__ROOT__/Public/Admin/kindeditor/kindeditor.js"></script>-->
+<script type="text/javascript" src="__ROOT__/Public/Admin/assets/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript">
+  //搜索
+  function checkSearch()
+  {
+      if(document.fm.keyword.value == "")
+      {
+        //alert("搜索关键字不能为空！");
+        document.fm.keyword.focus();
+        //return false;
+      }
+  }
+</script>
+</head>
+
+<body>
+<!-- <form action="{:U('Search/order')}" method="post" name="fm" onsubmit="return checkSearch()">
+  <table width="95%" border="1" align="center" cellpadding="6" cellspacing="0" style="border-collapse: collapse">
+    <tr>
+      <td>
+        <input type="hidden" name="method" value="index">
+         搜索类型：
+        <select name="type">
+          <option value="vc_title">订单标题</option>
+        </select>
+        关键字：
+        <input type="text" name="keyword" size="20" value="{$keyword}">
+        <input type="submit" value="搜索">
+      </td>
+    </tr> 
+  </table>
+</form> -->
+
+<table width="95%" border="1" align="center" cellpadding="6" cellspacing="0" style="border-collapse: collapse;text-align:center;" bgColor="#9DD9FF" border="0">
+  <tr style="text-align:center;">
+    <td width="10%">编号</td>
+    <td width="10%">案件/产品id</td>
+    <td width='10%'>律师姓名</td>
+    <td width="10%">用户姓名</td>
+    <td width="10%">服务项目</td>
+    <td width="10%">支付方式</td>
+    <td width="10%">金额</td>
+    <td width="10%">状态</td>
+    <td width="20%">日期</td>
+  </tr>
+  <volist name="info" id="v">
+  <tr>
+  	<td>{$v.id}</td>
+    <td>{$v.caseID}</td>
+  	<td>{$v.lawyerName}</td>
+  	<td>{$v.userName}</td>
+  	<td>{$v.content}</td> 
+    <td>{$v.method}</td>
+    <td>{$v.count}</td>
+    <td>{$v.state}</td>
+    <td>{$v.date}</td>
+   </tr>
+  </volist>
+</table>
+<div style="margin-top:20px;text-align:center;">{$page}</div>
+
+</body>
+</html>

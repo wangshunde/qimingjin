@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+	<style>
+	a,a:link,a:active,a:visited,a:hover{text-decoration: none;color:#000;}
+	.index{font-size: 16px;margin-top: 0.1rem;}
+	.index .biaoqian{padding:0.2rem 5%;}
+	.word{background-color: #f1f1f1;text-align: center;margin: 0.05rem;padding: 0.05rem;display: inline-block;}
+	.jieshao{padding: 0 5%;margin-top: 0.2rem;background-color: #fff;width:90%;margin-bottom: 0.2rem;}
+	.jieshao h5{font-size: 18px;color:#85b2f6;text-align: left;background-size: 0.05rem 0.2rem;padding-left:.1rem;background-image:url(__PUBLIC__/Home/image/home-five.png);background-repeat: no-repeat;background-position: left center;}
+	
+	.jieshao .content{font-size:14px;}
+	.jieshao .ziliao{height:2.4rem;width:43%;border: 1px solid #d5dae1;display: inline-block;margin: 0.1rem 2% 0;}
+	.jieshao .ziliao img{width: 100%;height: 1.6rem;display: block;}
+	.jieshao .ziliao .one{margin-top: 0.1rem;color: #dd3535;overflow: hidden;height: 0.2rem;}
+	.jieshao .ziliao .two{font-size: 14px;}
+	</style>
+</head>
+<body>
+<div class="index">
+    <div class="biaoqian">
+    	<volist name="top" id="nr">
+			<a href="__APP__/Index/ziliaoIndex?index={$nr.biaoqianid}">
+			<span class="word"><p>{$nr.biaoqianname}</p></span>
+			</a>
+		</volist>
+    </div>
+</div>
+<!-- 最新上传 -->
+<div class="jieshao">
+	<h5>最新上传</h5>
+	<div class="content">
+		<volist name="list" id="vr">
+			<a href="__APP__/Index/ziliaoContent?index={$vr.id}">
+				<div class="ziliao">
+					<img src="__ROOT__/{$vr.cover}">
+					<p class="one">{$vr.biaoqian}</p>
+					<p class="two">{$vr.title}</p>
+				</div>
+			</a>
+		</volist>
+	</div>
+</div>
+
+
+<script>
+	//保存用户openid
+	$(function(){
+		var top = '{$top}';
+		if(top!='null'){
+			$(".index").show();
+		}else{
+			$(".index").hide();
+		}
+
+		$(".main_zj").click(function(){
+			$(".zhuanjia").show();
+			$(".wenti").hide();
+			$(".main_zj").css("color","#85b2f6");
+			$(".main_zj").css("border-bottom","1px solid #85b2f6");
+			$(".main_wt").css("color","#7d7d7d");
+			$(".main_wt").css("border-bottom","0");
+		});
+
+		$(".main_wt").click(function(){
+			$(".wenti").show();
+			$(".zhuanjia").hide();
+			$(".main_wt").css("color","#85b2f6");
+			$(".main_wt").css("border-bottom","1px solid #85b2f6");
+			$(".main_zj").css("color","#7d7d7d");
+			$(".main_zj").css("border-bottom","0");
+		});
+	})
+</script>
+</body>
+</html>

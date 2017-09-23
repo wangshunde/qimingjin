@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<!--<script type="text/javascript" src="__ROOT__/Public/Admin/kindeditor/kindeditor.js"></script>-->
+<script type="text/javascript" src="__ROOT__/Public/Admin/assets/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript">
+  //搜索
+  function checkSearch()
+  {
+      if(document.fm.keyword.value == "")
+      {
+        //alert("搜索关键字不能为空！");
+        document.fm.keyword.focus();
+        //return false;
+      }
+  }
+</script>
+</head>
+
+<body>
+<form action="{:U('Search/resource')}" method="post" name="fm" onsubmit="return checkSearch()">
+  <table width="70%" border="1" align="center" cellpadding="6" cellspacing="0" style="border-collapse: collapse">
+    <tr>
+      <td>
+        <input type="hidden" name="method" value="index">
+         搜索类型：
+        <select name="type">
+          <option value="vc_type">资源类型</option>
+        </select>
+        关键字：
+        <input type="text" name="keyword" size="20" value="{$keyword}">
+        <input type="submit" value="搜索">
+      </td>
+    </tr> 
+  </table>
+</form>
+
+<table width="70%" border="1" align="center" cellpadding="6" cellspacing="0" style="border-collapse: collapse;text-align:center;" bgColor="#9DD9FF" border="0">
+  <tr style="text-align:center;">
+    <td width='10%'>类型</td>
+    <td width="10%">名称</td>
+    <td width="10%">封面</td>
+    <td width="10%">日期</td>
+    <td width="10%">操作</td>
+  </tr>
+  <volist name="info" id="v">
+  <tr>
+    <td>{$v.type}</td>
+    <td>{$v.name}</td>
+    <td><img src="{$v.headimg}" style="width:30%";></td>
+    <td>{$v.date}</td>
+    <td>
+      <a href="__APP__/Resource/getResource/id/{$v.id}">查看</a>
+      <a href="__APP__/Resource/delResource/id/{$v.id}">删除</a>
+    </td>
+   </tr>
+  </volist>
+</table>
+<div style="margin-top:20px;text-align:center;">{$page}</div>
+
+</body>
+</html>

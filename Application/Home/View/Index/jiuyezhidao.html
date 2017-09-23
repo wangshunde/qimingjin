@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+	<style>
+	.guanggao{height:2rem;}
+	.guanggao .content{height:2rem;background-image:url(__PUBLIC__/Home/image/home-guanggao.png);background-size: 100% 100%;background-repeat: no-repeat;}
+	.jieshao h5,.fuwu h5{font-size: 20px;color:#85b2f6;text-align: left;background-size: 0.05rem 0.2rem;padding-left:.1rem;background-image:url(__PUBLIC__/Home/image/home-five.png);background-repeat: no-repeat;background-position: left center;}
+	.jieshao{margin: 0 0.1rem;}
+	.jieshao .content{font-size:18px;margin-top:0.1rem;}
+	.fuwu{height:5rem;margin: 0.1rem 0.1rem;margin-bottom: 1rem;}
+	.fuwu .fuwu1{height:0.4rem;width:75%;margin:0.1rem auto;background-image:url(__PUBLIC__/Home/image/jiuye01.png);background-size: 100% 100%;background-repeat: no-repeat;}
+	.fuwu .fuwu3{height:0.6rem;width:75%;margin:0 auto;background-image:url(__PUBLIC__/Home/image/jiuye03.png);background-size: 100% 100%;background-repeat: no-repeat;}
+	.fuwu .fuwu4{height:0.6rem;width:75%;margin:0 auto;background-image:url(__PUBLIC__/Home/image/jiuye04.png);background-size: 100% 100%;background-repeat: no-repeat;}
+	.fuwu .fuwu5{height:0.6rem;width:75%;margin:0 auto;background-image:url(__PUBLIC__/Home/image/jiuye05.png);background-size: 100% 100%;background-repeat: no-repeat;}
+	.fuwu .fuwu2{height:0.4rem;width:75%;margin:0.1rem auto;background-image:url(__PUBLIC__/Home/image/jiuye02.png);background-size: 100% 100%;background-repeat: no-repeat;margin-top: 0.2rem;}
+	.fuwu .fuwu6{height:0.6rem;width:75%;margin:0 auto;background-image:url(__PUBLIC__/Home/image/jiuye06.png);background-size: 100% 100%;background-repeat: no-repeat;}
+	.fuwu .fuwu7{height:0.6rem;width:75%;margin:0 auto;background-image:url(__PUBLIC__/Home/image/jiuye07.png);background-size: 100% 100%;background-repeat: no-repeat;}
+	.fuwu .fuwu8{height:0.6rem;width:75%;margin:0 auto;background-image:url(__PUBLIC__/Home/image/jiuye08.png);background-size: 100% 100%;background-repeat: no-repeat;}
+
+	.iframe{width:100%;}
+	.iframe iframe{width:100%;}
+	.img{width: 100%;height:2.4rem;margin-bottom: 0.1rem;}
+	.img img{width:100%;height: 100%;}
+	.footer{height: 0.5rem;position: fixed;bottom: 0;width: 100%;background: #fff;}
+	.footer .tele,.footer .gangwei{height:0.5rem;float: left;font-size: 18px;}
+	.footer .tele{width:66%;}
+	.footer .tele img{display: block;width:0.3rem;height:0.3rem;float: left;margin-top: 0.1rem;margin-left: 0.6rem;}
+	.footer .tele p{height:0.3rem;line-height: 0.3rem;margin-top: 0.1rem;float: left;color:red;}
+	.footer .gangwei{width:34%;background-color:#85b2f6;color:#fff;text-align: center;line-height: 0.5rem; }
+	
+	</style>
+</head>
+<body>
+<!-- 图片广告 -->
+<div class="guanggao">
+	<div class="content">
+	</div>
+</div>
+
+<!-- 介绍 -->
+<div class="jieshao">
+	<h5>介绍</h5>
+	<p class="content">
+		{$word}
+	</p>
+	<div class="iframe">
+		{$movie}
+	</div>
+	<neq name="cover" value=''>
+	<volist name="cover" id="cr">
+		<div class="img">
+			<img src="__ROOT__/{$cr}">
+		</div>
+	</volist>
+	</neq>
+</div>
+
+<!-- 差异化服务内容 -->
+<div class="fuwu">
+	<h5>功能介绍</h5>
+	<div class="fuwu1">
+	</div>
+	<a href="__APP__/Index/jiuyePage/num/1">
+		<div class="fuwu3">
+		</div>
+	</a>
+	<a href="__APP__/Index/jiuyePage/num/2">
+		<div class="fuwu4">
+		</div>
+	</a>
+	<a href="__APP__/Index/jiuyePage/num/3">
+		<div class="fuwu5">
+		</div>
+	</a>
+	<div class="fuwu2">
+	</div>
+	<a href="__APP__/Index/jiuyePage/num/4">
+		<div class="fuwu6">
+		</div>
+	</a>
+	<a href="__APP__/Index/jiuyePage/num/5">
+		<div class="fuwu7">
+		</div>
+	</a>
+	<a href="__APP__/Index/jiuyePage/num/6">
+		<div class="fuwu8">
+		</div>
+	</a>
+</div>
+
+<div class="footer">
+	<a href="tel:{$tel}">
+    <div class="tele">
+    	<img src="__PUBLIC__/Home/image/tele1.png">
+    	<p>电话咨询</p>
+    </div>
+    </a>
+    <a href="__APP__/Index/gangwei">
+    <div class="gangwei">
+    	岗位信息
+    </div>
+    </a>
+</div>
+<script>
+	//保存用户openid
+	var openid = '{$openid}';
+	localStorage.openid = openid;
+</script>
+</body>
+</html>

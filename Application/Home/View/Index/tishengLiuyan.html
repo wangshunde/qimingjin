@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+	<style>
+	body{font-size: 16px;}
+	.title{font-size: 16px;height: 0.4rem;border-bottom: 1px solid #f1f1f1;line-height: 0.4rem;padding: 0 0.2rem;color:#404040;}
+	.type{padding: 0 0.2rem;height:1.2rem;margin-top: 0.1rem;}
+	.one,.two,.three{width:33%;font-size: 14px;float: left;height:1.2rem;text-align: center;background-size: 0.8rem 0.8rem;background-repeat: no-repeat;background-position: center top;}
+	.one p,.two p,.three p{margin-top: 0.9rem;}
+
+	.content{margin:0 0.2rem;}
+	.content textarea{display: block;width:100%;font-size: 16px;height:3rem;resize: none;border-color: #f1f1f1;}
+
+	.liuyan{height:0.4rem;width:2rem;margin:0 auto;}
+	.liuyan .anniu{width: 100%;height:100%;font-size: 16px;color: #fff;background-color: #85b2f6;border-radius: 0.5rem;border: none;margin-top: 0.5rem;} 
+	</style>
+</head>
+<body>
+<form action="{:U('Index/tishengLiuyanAction')}" method="post" id="fm">
+	<div class="title">选择问题分类</div>
+	<div class="type">
+		<div class="one leixing" style="background-image: url(__PUBLIC__/Home/image/wt02.png)"><p>岗位动态分析</p></div>
+		<div class="two leixing" style="background-image: url(__PUBLIC__/Home/image/wt03.png)"><p>技能提升手段</p></div>
+		<div class="three leixing" style="background-image: url(__PUBLIC__/Home/image/wt04.png)"><p>提升机会预设</p></div>
+		<input type="hidden" name="type" id="type">
+	</div>
+	<div class="content">
+		<textarea name="word" id="word" placeholder="请描述您的问题"></textarea>
+	</div>
+	<div class="liuyan">
+		<input type="button" value="留言" onclick="checkForm()" class="anniu">
+	</div>
+</form>
+
+<script>
+	$(function(){
+		$(".leixing").click(function(){
+			var indexNum = $(this).index();
+			if(indexNum == 0){
+				$(".one").css('background-image','url(__PUBLIC__/Home/image/wt22.png)');
+				$(".two").css('background-image','url(__PUBLIC__/Home/image/wt03.png)');
+				$(".three").css('background-image','url(__PUBLIC__/Home/image/wt04.png)');
+				$("#type").val('岗位动态分析');
+			}else if(indexNum == 1){
+				$(".one").css('background-image','url(__PUBLIC__/Home/image/wt02.png)');
+				$(".two").css('background-image','url(__PUBLIC__/Home/image/wt33.png)');
+				$(".three").css('background-image','url(__PUBLIC__/Home/image/wt04.png)');
+				$("#type").val('技能提升手段');
+			}else if(indexNum == 2){
+				$(".one").css('background-image','url(__PUBLIC__/Home/image/wt02.png)');
+				$(".two").css('background-image','url(__PUBLIC__/Home/image/wt03.png)');
+				$(".three").css('background-image','url(__PUBLIC__/Home/image/wt44.png)');
+				$("#type").val('提升机会预设');
+			}
+			
+		})
+	})
+	function checkForm(){
+	    var type = $("#type").val();
+	    var word = $("#word").val();
+	    if(type==null || type==''){
+	        alert("请选择问题类型!");
+	        return false;
+	    }else if(word==null || word==''){
+	        alert("请填写您的问题!");
+	        return false;
+	    }else{
+	        $("#fm").submit();
+	    }
+	}
+</script>
+</body>
+</html>

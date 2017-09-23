@@ -1,0 +1,40 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<title>{$title}</title>
+<script>
+	var deviceHeight = document.documentElement.clientHeight;
+    if(deviceHeight > 627){
+        deviceHeight = 627;
+    }
+    document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+</script>
+	<style type="text/css">
+	@media screen and (min-width:320px) and (max-width:360px){
+		html{
+			font-size:12px;
+		}
+	}
+	 @media screen and (min-width:360px) and (max-width:385px){
+		html{
+			font-size:14px;
+		}
+	}
+		*{
+			margin:0;
+			padding:0;
+			font-family: '微软雅黑';
+		}
+	</style>
+</head>
+<body>
+<script>
+	$(function(){
+		alert("{$info}");
+		window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5cf1906edb367f98&redirect_uri=http://zzj00300003.com/dlteach/index.php/Index/index&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+	})
+</script>
+</body>
+</html>

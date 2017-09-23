@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+	<style>
+	.wenti .question{font-size: 16px;color:#404040;padding: 0.2rem 0;height:0.6rem;border-bottom: 1px solid #f1f1f1;margin:0 0.2rem;overflow: hidden;width:100%;}
+	.wenti .title{font-size: 13px;margin-top: 0.1rem;}
+	
+	.huida .answer{font-size: 16px;color:#404040;padding: 0.2rem 0;height:1rem;border-bottom: 1px solid #f1f1f1;margin:0 0.2rem;overflow: hidden;width:100%;}
+	.huida .content{margin-top: 0.1rem;}
+
+	
+	</style>
+</head>
+<body>
+<!-- 问题列表 -->
+<div class="wenti">
+	<div class="question">
+		<div class="word">
+			{$yinanRes.text_question}
+		</div>
+		<div class="title">
+			{$yinanRes.vc_tag}
+		</div>
+	</div>	
+</div>
+<div class="huida">
+	<volist name="answerRes" id="an">
+	<div class="answer">
+		<div class="zhuanjia">
+			{$an.vc_zhuanjia}
+		</div>
+		<div class="content">
+			{$an.text_content}
+		</div>
+	</div>
+	</volist>
+</div>
+
+
+<script>
+
+</script>
+</body>
+</html>

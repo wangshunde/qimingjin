@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>网站</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" src="__PUBLIC__/Admin/Js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+        h1{text-align: center;margin-bottom: 20px;}
+        div{
+            width:100%;
+        }
+        #fm{width: 700px;margin: 0 auto;}
+        textarea{display:inline-block;vertical-align:middle;}
+    </style>
+</head>
+<body>
+<div>
+    <h1>电话热线</h1>
+    <form action="{:U('Website/addAction')}" method="post" id="fm">
+        <div style="margin-bottom:20px;">
+            <label for="jiuyezhidao">就业指导热线:&nbsp;&nbsp;</label>
+            <input type="text" name="jiuyezhidao" id="jiuyezhidao" value="{$jiuyezhidaoTel}">
+        </div>
+        <div style="margin-bottom:20px;">
+            <label for="xianchangyinan">现场疑难热线:&nbsp;&nbsp;</label>
+            <input type="text" name="xianchangyinan" id="xianchangyinan" value="{$xianchangyinanTel}">
+        </div>
+        <div style="margin-bottom:20px;">
+            <label for="gangweitisheng">岗位提升热线:&nbsp;&nbsp;</label>
+            <input type="text" name="gangweitisheng" id="gangweitisheng" value="{$gangweitishengTel}">
+        </div>
+        <div style="margin-top:20px;text-align:center;"><input type="button" value="上传" style="width:100px;height:30px;" onclick="checkForm()"></div>
+    </form>
+</div>
+</body>
+<script type="text/javascript">
+function checkForm(){
+    var jiuyezhidao = $("#jiuyezhidao").val();
+    var xianchangyinan = $("#xianchangyinan").val();
+    var gangweitisheng = $("#gangweitisheng").val();
+    if(jiuyezhidao=='' || xianchangyinan=='' || gangweitisheng==''){
+        alert("请勿为空!");
+        return false;
+    }else{
+        $("#fm").submit();
+    }
+}
+
+</script>
+</html>

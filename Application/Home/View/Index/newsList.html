@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+	<style>
+	.xinwen{margin:0.1rem .2rem;}
+	.xinwen .content .news{margin-top: 0.1rem;height:0.9rem;border-bottom: 1px solid #f1f1f1}
+	.xinwen .content .news .word{width:2.25rem;float: left;}
+	.xinwen .content .news .tittle{font-size: 17px;overflow: hidden;height:0.5rem;color:#404040;}
+	.xinwen .content .news .date{font-size: 13px;height:0.2rem;margin-top: 0.1rem;color:#7d7d7d;}
+	.xinwen .content .news .img{height:0.7rem;float: right;width: 1rem;background-size:100% 100%;}
+	</style>
+</head>
+<body>
+<!-- 新闻 -->
+<div class="xinwen">
+	<div class="content">
+		<volist name="newRes" id="nr">
+			<a href="__APP__/Index/newsInfo/id/{$nr.int_id}">
+			<div class="news">
+				<div class="word">
+					<div class="tittle">{$nr.vc_title}</div>
+					<div class="date">{$nr.dt_date}</div>
+				</div>
+				<div class="img" style="background-image:url(__ROOT__/{$nr.vc_cover});"></div>
+			</div>
+			</a>
+		</volist>
+	</div>
+</div>
+</body>
+</html>

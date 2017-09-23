@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>回答</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" src="__PUBLIC__/Admin/Js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+        h1{text-align: center;margin-bottom: 20px;}
+        div{
+            width:100%;
+        }
+        #fm{width: 700px;margin: 0 auto;}
+        textarea{display:inline-block;vertical-align:middle;}
+    </style>
+</head>
+<body>
+<div>
+    <h1>回复提问</h1>
+    <form action="{:U('Question/replyAction')}" method="post" id="fm">
+        <input type="hidden" name="questionid" value="{$questionid}">
+        <div style="margin-bottom:20px;">
+            <label for="question">问题:&nbsp;&nbsp;&nbsp;</label>
+            <textarea rows="10" cols="70" name="question" id="question" readonly="readonly">{$question}</textarea>
+        </div>
+        
+        <div style="margin-bottom:20px;">
+            <label for="reply">回答:&nbsp;&nbsp;&nbsp;</label>
+            <textarea rows="10" cols="70" name="reply" id="reply">{$reply}</textarea>
+            
+        </div>
+        
+        <div style="margin-top:20px;text-align:center;"><input type="button" value="上传" style="width:100px;height:30px;" onclick="checkForm()"></div>
+    </form>
+</div>
+</body>
+<script type="text/javascript">
+function checkForm(){
+    var content = $("#reply").val();
+    if(content==null || content==''){
+        alert("内容为空,请添加!");
+        return false;
+    }else{
+        $("#fm").submit();
+    }
+}
+
+</script>
+</html>

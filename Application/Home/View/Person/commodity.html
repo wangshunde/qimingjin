@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/home.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/footer.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/Home/js/link.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+	<style>
+	.content{background-color:#ffffff;padding:20px;}
+	.myword{font-size: 18px;text-align: center;}
+    .erweima img{width: 100%;}
+	</style>
+</head>
+<body>
+<section class="content">
+    <div class="">
+        <div class="erweima">
+            <img id="erweima" src="" />
+        </div>
+        <p class="myword">我的二维码</p>
+    </div>
+</section>
+
+<!-- 底部菜单 -->
+<div class="footer">
+    <div class="home" style="background-image:url(__PUBLIC__/Home/image/home1.png);">
+
+    </div>
+    <div class="erweima" style="background-image:url(__PUBLIC__/Home/image/erweima2.png);">
+            
+    </div>
+    <div class="geren" style="background-image:url(__PUBLIC__/Home/image/geren1.png);">
+
+    </div>
+</div>
+<script>
+	$(function(){
+		var erweimaUrl = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket={$ticket}";
+        $("#erweima").attr('src',erweimaUrl);
+	})
+</script>
+</body>
+</html>

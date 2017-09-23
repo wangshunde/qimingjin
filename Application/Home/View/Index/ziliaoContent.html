@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+	<style>
+	a,a:link,a:active,a:visited,a:hover{text-decoration: none;color:#000;}
+	body{background-color: #f1f1f1;}
+	.top{padding:0.15rem 3%;font-size: 16px;background-color: #fff;}
+	.top .title p{color: #85b2f6;font-size: 18px;}
+	.biaoqian{font-size: 16px;}
+	.word{background-color: #f1f1f1;text-align: center;margin: 0.05rem;padding: 0.05rem;display: inline-block;}
+	.content{padding-left: 3%;padding-right: 3%;background-color: #fff;margin-top: 0.1rem;padding-top: 0.15rem;color:#7d7d7d;font-size: 16px;padding-bottom: 0.2rem;}
+	.content h5{font-size: 18px;text-align: left;margin-bottom: 0.1rem;}
+	.content .main .img{width: 100%;height:2.4rem;margin-bottom: 0.1rem;}
+	.content .main img{width:100%;height: 100%;}
+	.sub{height:0.4rem;width:2rem;margin:0 auto;margin-top: 0.2rem;}
+	.sub input{clear: both;width: 100%;height:100%;font-size: 16px;color: #fff;background-color: #85b2f6;border-radius: 0.5rem;border: none;}
+	.iframe{width:100%;}
+	.iframe iframe{width:100%;}
+	</style>
+</head>
+<body>
+
+<div class="top">
+	<div class="title">
+		<p>{$content.vc_title}</p>
+	</div>
+	<div class="biaoqian">
+		<volist name="biaoqian" id="nr">
+			<span class="word"><p>{$nr}</p></span>
+		</volist>
+    </div>
+</div>
+
+<div class="content">
+	<h5>资料简介</h5>
+	<div class="main">
+		<p>{$content.text_content}</p>
+		<eq name="type" value='1'>
+			<div class="iframe">
+				{$content.vc_movie}
+			</div>
+		<else />
+			<eq name="vip" value='0'>
+				<div class="iframe">
+					{$content.vc_yulan}
+				</div>
+			<else />
+				<div class="iframe">
+					{$content.vc_movie}
+				</div>
+			</eq>
+		</eq>
+		
+		
+		<neq name="cover" value=''>
+		<volist name="cover" id="cr">
+			<div class="img">
+				<img src="__ROOT__/{$cr}">
+			</div>
+		</volist>
+		</neq>
+		
+		<div class="sub">
+			<eq name="type" value='1'>
+				<input type="button" value="下载" id="download">
+			<else />
+				<eq name="vip" value='0'>
+					<a href="__APP__/person/index"><input type="button" value="开通VIP"></a>
+					<else />
+					<input type="button" value="下载" id="download">
+				</eq>
+			</eq>
+			
+		</div>
+	</div>
+</div>
+
+<script>
+	$(function(){
+		$("#download").click(function(){
+			var pass = "下载密码：{$content.vc_downpass}";
+			alert(pass);
+			window.location.href = "{$content.vc_download}";
+		})
+	})
+</script>
+</body>
+</html>

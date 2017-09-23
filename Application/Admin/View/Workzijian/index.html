@@ -1,0 +1,126 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<title>无标题文档</title>
+
+<!--<script type="text/javascript" src="__ROOT__/Public/Admin/kindeditor/kindeditor.js"></script>-->
+
+<script type="text/javascript" src="__ROOT__/Public/Admin/assets/js/jquery-1.8.1.min.js"></script>
+
+<script type="text/javascript">
+
+  //搜索
+
+  function checkSearch()
+
+  {
+
+      if(document.fm.keyword.value == "")
+
+      {
+
+        //alert("搜索关键字不能为空！");
+
+        document.fm.keyword.focus();
+
+        //return false;
+
+      }
+
+  }
+
+</script>
+
+</head>
+
+
+
+<body>
+
+<!-- <form action="{:U('Search/cases')}" method="post" name="fm" onsubmit="return checkSearch()">
+
+  <table width="95%" border="1" align="center" cellpadding="6" cellspacing="0" style="border-collapse: collapse">
+
+    <tr>
+
+      <td>
+
+        <input type="hidden" name="method" value="index">
+
+         搜索类型：
+
+        <select name="type">
+
+          <option value="vc_title">案件标题</option>
+
+        </select>
+
+        关键字：
+
+        <input type="text" name="keyword" size="20" value="{$keyword}">
+
+        <input type="submit" value="搜索">
+
+      </td>
+
+    </tr> 
+
+  </table>
+
+</form> -->
+
+
+
+<table width="95%" border="1" align="center" cellpadding="6" cellspacing="0" style="border-collapse: collapse;text-align:center;" bgColor="#9DD9FF" border="0">
+
+  <tr style="text-align:center;">
+
+    <td width="10%">编号</td>
+
+    <td width="15%">用户昵称</td>
+
+    <td width='10%'>自荐岗位</td>
+
+    <td width="10%">所属单位</td>
+
+    <td width="10%">日期</td>
+
+    <td width="15%">操作</td>
+  </tr>
+
+  <volist name="info" id="v">
+
+  <tr>
+
+  	<td>{$v.id}</td>
+
+    <td>{$v.username}</td>
+
+  	<td>{$v.workname}</td>
+
+  	<td>{$v.comname}</td>
+
+    <td>{$v.date}</td>
+
+    <td>
+      <a href="__APP__/Workzijian/jianli/id/{$v.openid}">查看简历</a>
+    </td>
+   </tr>
+
+  </volist>
+
+</table>
+
+<div style="margin-top:20px;text-align:center;">{$page}</div>
+
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>{$title}</title>
+    <script type="text/javascript" src="__PUBLIC__/Admin/Js/jquery.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="__ROOT__/Public/Admin/Css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ROOT__/Public/Admin/Css/base.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <!--<link href="__ROOT__/Public/Admin/Css/signin.css" rel="stylesheet">-->
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<!--     <script src="Application/Admin/View/Index/assets/js/ie-emulation-modes-warning.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<script>
+  $(document).ready(function (){
+    $('#top').change(function(){
+    var topid=$(this).children('option:selected').val();//这就是selected的值
+    $.ajax({
+        type:"POST",
+        url:"__ROOT__/admin.php/Menu/getParent",
+        data:"topid="+topid,
+        success:function(msg){
+            if(msg) {
+              if(msg==0){
+                $("#parent").attr("disabled","disabled");
+              }else{
+                $("#parent option").remove();
+                $("#parent").attr("disabled",false);
+                $("#parent").append("<option value='"+topid+"'>选择当前菜单</option>");
+                var arr=eval(msg);
+                for(var i=0;i<=arr.length-1;i++){               
+                    $("#parent").append("<option value='"+arr[i].menuid+"'>"+arr[i].menuname+"</option>");
+                }
+              }
+            }else{
+              alert("请选择");
+            }
+        }
+      });
+    }) 
+  })
+</script>
+  </head>
+
+  <body>
+    <div class="container">
+      <form class="form-signin" method="post" action="{:U('Menu/addAction')}" onsubmit="return checkForm()" id="fm">
+        <h2 class="form-signin-heading text-center">菜单添加</h2>
+        
+        <select name="top" id="top" class="form-control">
+          <option value="">请选择顶级菜单</option>
+          <option value="0">顶级菜单</option>
+          <foreach name="top" item="v">
+          <option value="{$v.menuid}">{$v.menuname}</option>
+          </foreach>
+        </select>
+        <div style="height:10px;"></div>
+
+        <select name="parent" id="parent" class="form-control">
+          <option value="">请选择父级菜单</option>
+        </select>
+        <div style="height:10px;"></div>
+
+        <input type="text" id="name" name="name" class="form-control" placeholder="菜单名称" required>
+
+        <input type="text" id="num" name="num" class="form-control" placeholder="菜单排序" required>
+
+        <input type="text" id="url" name="url" class="form-control" placeholder="菜单路径" >
+
+        <input type="hidden" name="addname" value="{$addname}">
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><p class="h3" style="padding:0px;margin:0px;">提&nbsp;交</p></button>
+      </form>
+
+    </div>
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <!--<script src="Application/Admin/View/Index/assets/js/ie10-viewport-bug-workaround.js"></script>-->
+  </body>
+</html>

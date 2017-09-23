@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>专家</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" src="__PUBLIC__/Admin/Js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+        h1{text-align: center;margin-bottom: 20px;}
+        div{
+            width:100%;
+        }
+        #fm{width: 700px;margin: 0 auto;}
+        textarea{display:inline-block;vertical-align:middle;}
+    </style>
+</head>
+<body>
+<div>
+    <h1>新增专家</h1>
+    <form action="{:U('Zhuanjia/addAction')}" method="post" id="fm" enctype="multipart/form-data">
+        <div style="margin-bottom:20px;">
+            <label for="name">姓名:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" name="name" id="name" >
+        </div>
+        <div style="margin-bottom:20px;">
+            <label for="photo">头像:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="file" name="photo" id="photo">
+        </div>
+        <div style="margin-bottom:20px;">
+            <label for="job">职务:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" name="job" id="job" >
+        </div>
+        <div style="margin-bottom:20px;">
+            <label for="jieshao">介绍:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <textarea rows="10" cols="40" name="jieshao" id="jieshao"></textarea>
+        </div>
+        <div style="margin-bottom:20px;">
+            <label for="techang">特长:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <textarea rows="10" cols="40" name="techang" id="techang"></textarea>
+        </div>
+        <p style="color:red;">介绍及特长如分段请用“&&”隔开</p>
+        <div style="margin-top:20px;text-align:center;"><input type="button" value="上传" style="width:100px;height:30px;" onclick="checkForm()"></div>
+    </form>
+</div>
+</body>
+<script type="text/javascript">
+function checkForm(){
+    var name = $("#name").val();
+    var job = $("#job").val();
+    var jieshao = $("#jieshao").val();
+    var techang = $("#techang").val();
+    if(name==null || name==''){
+        alert("姓名为空,请添加!");
+        return false;
+    }else if(job==null || job==''){
+        alert("职务为空,请添加!");
+        return false;
+    }else if(jieshao==null || jieshao==''){
+        alert("介绍为空,请添加!");
+        return false;
+    }else if(techang==null || techang==''){
+        alert("特长为空,请添加!");
+        return false;
+    }else{
+        $("#fm").submit();
+    }
+}
+
+</script>
+</html>

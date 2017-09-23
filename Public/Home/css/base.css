@@ -1,0 +1,7 @@
+/*@font-face {
+    font-family: 'pingfang';
+    src: url('__PUBLIC__/Home/font/PINGFANG MEDIUM_0.TTF');
+} */
+*{margin: 0;padding: 0;}
+body{font-family: pingfang;}
+a{text-decoration: none;}

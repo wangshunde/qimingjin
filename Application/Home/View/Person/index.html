@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/home.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/footer.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/Home/js/link.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+	<style>
+		.top-img{width:100%;height:1.8rem;background-size: 100% 100%;}
+    
+	    .user-img{width:0.75rem;height:0.75rem;margin:0 auto;position: absolute;top:1.45rem;left:50%;margin-left: -0.375rem;}
+	    .user-img img{display: block;border-radius: 50%;width: 100%;height:100%;border: 2px solid #fff;}
+	    .user-name{font-size: 17px;margin-top: 0.5rem;text-align: center;}
+
+	    .huiyuan{text-align: center;font-size: 15px;height:1.2rem;margin-top: 0.2rem;}
+	    .huiyuan .left,.huiyuan .right{float: left;width:50%;height:1.2rem;}
+	    .huiyuan .left .left-img,.huiyuan .right .right-img{width:0.8rem;height: 0.8rem;background-size: 100% 100%;background-repeat: no-repeat;margin: 0 auto;}
+	    .huiyuan .left .left-text,.huiyuan .right .right-text{margin-top: 0.1rem;color:#7f8182;}
+	    .upline{text-align: center;font-size: 15px;height:0.9rem;margin-top: 0.2rem;}
+	    .upline .up{color:#7f8182;}
+	    .upline .left,.upline .right{float: left;width:50%;height:1.2rem;}
+	    .upline .left .left-text,.upline .right .right-text{margin: 0.1rem 0;color:#7f8182;font-size: 17px;}
+	    .liuyan{height:0.6rem;margin-top: 0.3rem;background-size: 0.25rem 0.25rem;background-repeat: no-repeat;font-size: 18px;background-position: 0.3rem center;padding-left: 0.7rem;color:#7f8182;position: relative;line-height: 0.6rem;margin-bottom:1rem; }
+	    .liuyan img{position: absolute;right:0.3rem;height:0.25rem;top:0.175rem;}
+	</style>
+</head>
+<body>
+<!-- 顶部图 -->
+<div class="top-img" style="background-image:url(__PUBLIC__/Home/image/1.png);"></div>
+<!-- 个人姓名、头像 -->
+<div class="user-img">
+    <img src="{$userinfo.vc_photo}">
+</div>
+<div class="user-name">
+    <p>{$userinfo.vc_name}</p>
+</div>
+<!-- 会员信息 -->
+<div class="huiyuan">
+	<eq name="vip" value='0'>
+		<a href="__APP__/person/joinvip">
+			<div class="left">
+				<div class="left-img" style="background-image:url(__PUBLIC__/Home/image/2.png);"></div>
+				<p class="left-text">普通会员</p>
+			</div>
+			<div class="right">
+				<div class="right-img" style="background-image:url(__PUBLIC__/Home/image/3.png);"></div>
+				<p class="right-text">加入VIP会员</p>
+			</div>
+		</a>
+	<else/>
+		<a href="__APP__/person/joinvip">
+			<div class="left">
+				<div class="left-img" style="background-image:url(__PUBLIC__/Home/image/2.png);"></div>
+				<p class="left-text">VIP会员</p>
+			</div>
+			<div class="right">
+				<div class="right-img" style="background-image:url(__PUBLIC__/Home/image/3.png);"></div>
+				<p class="right-text">{$userinfo.dt_limit}到期</p>
+			</div>
+		</a>
+	</eq>
+</div>
+<!-- 推荐人及收益 -->
+<div class="upline">
+	<div class="left">
+		<p class="left-text">推荐人</p>
+		<p class="up">{$upline}</p>
+	</div>
+	<div class="right">
+		<p class="right-text">收益总额</p>
+		<p class="up">{$fanxian}元</p>
+	</div>
+</div>
+<!-- 留言 -->
+<a href="__APP__/person/myQuestion">
+<div class="liuyan" style="background-image:url(__PUBLIC__/Home/image/4.png);">
+	<p>我的提问</p>
+	<img src="__PUBLIC__/Home/image/5.png">
+</div>
+</a>
+<!-- 底部菜单 -->
+<div class="footer">
+    <div class="home" style="background-image:url(__PUBLIC__/Home/image/home1.png);">
+
+    </div>
+    <div class="erweima" style="background-image:url(__PUBLIC__/Home/image/erweima1.png);">
+            
+    </div>
+    <div class="geren" style="background-image:url(__PUBLIC__/Home/image/geren2.png);">
+
+    </div>
+</div>
+</body>
+</html>

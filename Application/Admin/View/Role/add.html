@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>{$title}</title>
+    <script type="text/javascript" src="__PUBLIC__/Admin/Js/jquery.js"></script>
+
+    <link href="__ROOT__/Public/Admin/Css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ROOT__/Public/Admin/Css/role.css" rel="stylesheet">
+
+<script>
+  $(document).ready(function (){
+  	var par = eval({$father});
+  	var per = eval({$permission});
+  	$(".main").children().remove();
+  	for (var i=0;i<=par.length-1;i++) {
+  		$('.main').append("<div class='limit'><div class='left'>"+par[i].parent+"<input type='checkbox'  class='parid"+i+"' value='"+par[i].parentid+"'  name='fatherpermission[]'/></div><div class='right par"+i+"'></div></div>");
+  		for (var j=0;j<=per[i].length-1;j++) {
+  			$('.par'+i).append("<li>"+per[i][j].permissionname+"<input type='checkbox' name='permission[]' value='"+per[i][j].permissionid+"' onclick='son("+i+")' class='"+i+"'></li>");
+  		};
+  	};
+
+  })
+  function son(a){
+    var checkArr =  new Array();
+    $("input[type=checkbox]."+a).each(function(){
+      checkArr.push(this.checked);
+    });
+    var o = checkArr.indexOf(true);
+    if(o==(-1)){
+      $(".parid"+a).attr("checked",false);
+    }else{
+      $(".parid"+a).attr("checked","checked");
+    }
+  }
+
+</script>
+<style>
+	li{float:left;list-style: none;}
+	.left,.right{float:left;height: 27px;line-height: 27px;}
+	.left{width:20%;}
+	.right{width:80%;}
+	.right li{width:20%;}
+	.limit{width:100%;height:44px;font-size: 16px;padding:10px;}
+</style>
+  </head>
+
+  <body>
+    <div class="container">
+      <form class="form-signin" method="post" action="{:U('Role/addAction')}" onsubmit="return checkForm()" id="fm">
+        <h2 class="form-signin-heading text-center">角色添加</h2>
+
+        <input type="text" id="name" name="name" class="form-control" placeholder="角色名称" required>
+        <p style="font-size:16px;font-weight: bold;">角色权限:</p>
+		<div class="main">
+	        <div class='limit'>
+	        	<div class='left'>人员管理</div>
+	        	<div class='right'>
+	        		<li>增加<input type='checkbox' name='permission[]' value='add'></li>
+	        		<li>删除<input type='checkbox' name='permission[]' value='del'></li>
+	        	</div>
+	        </div>
+	        
+        </div>
+        <div style="height:10px;"></div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><p class="h3" style="padding:0px;margin:0px;">提&nbsp;交</p></button>
+      </form>
+
+    </div>
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <!--<script src="Application/Admin/View/Index/assets/js/ie10-viewport-bug-workaround.js"></script>-->
+  </body>
+</html>

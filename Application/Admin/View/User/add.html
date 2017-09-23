@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>{$title}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="__ROOT__/Public/Admin/Css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ROOT__/Public/Admin/Css/base.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <!--<link href="__ROOT__/Public/Admin/Css/signin.css" rel="stylesheet">-->
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<!--     <script src="Application/Admin/View/Index/assets/js/ie-emulation-modes-warning.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+      function checkForm()
+      {
+          if(document.getElementById("sex").value == "")
+          {
+            alert("请选择性别！");
+            return false;
+          }
+          if(document.getElementById("role").value == "")
+          {
+            alert("请选择角色！");
+            return false;
+          }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <form class="form-signin" method="post" action="{:U('User/addAction')}" onsubmit="return checkForm()" id="fm">
+        <h2 class="form-signin-heading text-center">人员添加</h2>
+        
+        <input type="text" id="username" name="username" class="form-control" placeholder="用户名" required autofocus>
+
+        <input type="text" id="password" name="password" class="form-control" placeholder="密码" required>
+
+        <input type="text" id="realname" name="realname" class="form-control" placeholder="姓名" required>
+
+        <select name="sex" id="sex" class="form-control">
+          <option value="">请选择性别</option>
+          <option value="1">男性</option>
+          <option value="2">女性</option>
+          <option value="0">保密</option>
+
+        </select>
+        <div style="height:10px;"></div>
+        <input type="text" id="telephone" name="telephone" class="form-control" placeholder="手机号" required>
+
+        <select name="role" id="role" class="form-control" >
+          <option value="">请选择角色</option>
+          <foreach name="role" item="v">
+          <option value="{$v.int_id}">{$v.vc_rolename}</option>
+          </foreach>
+        </select>
+        <div style="height:100px;"></div>
+        <input type="hidden" name="addname" value="{$addname}">
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><p class="h3" style="padding:0px;margin:0px;">提&nbsp;交</p></button>
+      </form>
+
+    </div>
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <!--<script src="Application/Admin/View/Index/assets/js/ie10-viewport-bug-workaround.js"></script>-->
+  </body>
+</html>

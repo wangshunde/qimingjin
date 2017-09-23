@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+    <style>
+    	.xinwen{margin:0.2rem 0.1rem;}
+    	.title{font-size: 22px;text-align: center;}
+    	.date{font-size: 13px;}
+    	.img{width:100%;height: 1.6rem;margin-top: 0.1rem;margin-bottom: 0.1rem;}
+    	.img img{width:100%;height:100%;}
+    	.content{font-size: 16px;}
+    </style>
+</head>
+<body>
+<!-- 新闻 -->
+<div class="xinwen">
+	<h3 class="title">{$newRes.vc_title}</h3>
+	<p class="date">{$newRes.dt_date}</p>
+	<div class="img">
+		<img src="__ROOT__/{$newRes.vc_cover}">
+	</div>
+	<div class="content">
+		{$newRes.text_content}
+	</div>
+</div>
+</body>
+</html>

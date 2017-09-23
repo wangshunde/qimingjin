@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+	<style>
+	body{background-color: #f1f1f1;font-size: 16px;color:#5d6064;}
+	.gangwei{margin-bottom: 0.6rem;}
+	.content{background-color: #fff;width:100%;margin-bottom: 0.1rem;}
+	.top{height:1.2rem;padding: 0 0.2rem;}
+	.left{float: left;}
+	.left .job{height: 0.5rem;line-height: 0.5rem;font-size: 18px;color:#85b2f6;}
+	.left .educational{height:0.25rem;line-height: 0.25rem;font-size: 15px;background-repeat: no-repeat;background-position: left center;background-size: 0.15rem 0.15rem;padding-left: 0.2rem;}
+	.left .major{height:0.25rem;line-height: 0.25rem;font-size: 15px;background-repeat: no-repeat;background-position: left center;background-size: 0.15rem 0.15rem;padding-left: 0.2rem;}
+	.right{float: right;margin-top: 0.4rem;}
+	.right div{padding:0.1rem 0.2rem;background-color: #85b2f6;color: #fff;border-radius: 0.25rem;font-size: 15px;}
+	.bottom{border-top: 1px solid #f1f1f1;height:0.4rem;line-height: 0.4rem;}
+	.bottom div{background-repeat: no-repeat;background-position: 0.2rem center;background-size: 0.2rem 0.2rem;padding-left: 0.5rem;}
+
+
+	.footer{height: 0.5rem;position: fixed;bottom: 0;width: 100%;background: #85b2f6;color:#fff;line-height: 0.5rem;text-align: center;}
+	</style>
+</head>
+<body>
+<!-- 岗位 -->
+<div class="gangwei">
+	<volist name="gangweiList" id="v">
+	<div class="content">
+		<div class="top">
+			<div class="left">
+				<div class="job">{$v.vc_job}</div>
+				<div class="educational" style="background-image: url(__PUBLIC__/Home/image/jiuye2.png)">{$v.vc_educational}</div>
+				<div class="major" style="background-image: url(__PUBLIC__/Home/image/jiuye3.png)">{$v.vc_major}</div>
+			</div>
+			<a href="__APP__/Index/gangweiInfo/id/{$v.int_id}">
+			<div class="right">
+				<div>岗位详情</div>
+			</div>
+			</a>
+		</div>
+		<div class="bottom">
+			<div style="background-image: url({$baseurl}{$v.vc_img})">{$v.vc_name}</div>
+		</div>
+	</div>
+	</volist>
+</div>
+<a href="__APP__/Index/jianli">
+<div class="footer">
+    <div>我的简历</div>
+</div>
+</a>
+<script>
+	$(function(){
+		var show = '{$show}';
+		if(show != ''){
+			alert(show);
+			show = '';
+		}
+	})
+</script>
+</body>
+</html>

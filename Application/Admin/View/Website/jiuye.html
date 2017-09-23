@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>网站</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" src="__PUBLIC__/Admin/Js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+        h1{text-align: center;margin-bottom: 20px;}
+        div{
+            width:100%;
+        }
+        #fm{width: 700px;margin: 0 auto;}
+        textarea{display:inline-block;vertical-align:middle;}
+    </style>
+</head>
+<body>
+<div>
+    <h1>就业指导</h1>
+    <form action="{:U('Website/jiuyeAction')}" method="post" id="fm" enctype="multipart/form-data">
+        <div style="margin-bottom:20px;">
+            <label for="word">宣传文字:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <textarea rows="10" cols="40" name="word" id="word">{$jiuyeWord}</textarea>
+        </div>
+        <div style="margin-bottom:20px;">
+            <label for="cover">宣传图片:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="hidden" name="cover_o" id="cover_o" value="{$jiuyeCover}">
+            <input type="file" name="cover[]" id="cover" multiple="true">
+        </div>
+        <div style="margin-bottom:20px;">
+            <label for="movie">宣传视频链接:&nbsp;&nbsp;</label>
+            <input type="text" name="movie" id="movie" value="{$jiuyeMovie}" style="width:500px">
+        </div>
+        <div style="margin-top:20px;text-align:center;"><input type="button" value="上传" style="width:100px;height:30px;" onclick="checkForm()"></div>
+    </form>
+</div>
+</body>
+<script type="text/javascript">
+function checkForm(){
+    var jiuyezhidao = $("#jiuyezhidao").val();
+    var xianchangyinan = $("#xianchangyinan").val();
+    var gangweitisheng = $("#gangweitisheng").val();
+    if(jiuyezhidao=='' || xianchangyinan=='' || gangweitisheng==''){
+        alert("请勿为空!");
+        return false;
+    }else{
+        $("#fm").submit();
+    }
+}
+
+</script>
+</html>

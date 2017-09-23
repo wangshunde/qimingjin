@@ -1,0 +1,24 @@
+request body = <TemplateSMS>
+                    <to>15234044204</to> 
+                    <appId>8a216da855dd248e0155e2f4e5650688</appId>
+                    <templateId>94475</templateId>
+                    <datas><data>334455</data></datas>
+                  </TemplateSMS>
+request url = https://127.0.0.1:8883/2013-12-26/Accounts/aaf98f894d328b13014d6f7ffaa22bf6/SMS/TemplateSMS?sig=0DB9591FC42D93D34EEB9C604E0E100E
+response body = <?xml version="1.0" encoding="UTF-8" standalone="yes"?><Response><statusCode>172001</statusCode><statusMsg>网络错误</statusMsg></Response>
+request body = <TemplateSMS>
+                    <to>15234044204</to> 
+                    <appId>8a216da855dd248e0155e2f4e5650688</appId>
+                    <templateId>94475</templateId>
+                    <datas><data>334455</data></datas>
+                  </TemplateSMS>
+request url = https://127.0.0.1:8883/2013-12-26/Accounts/aaf98f894d328b13014d6f7ffaa22bf6/SMS/TemplateSMS?sig=AC3038E42306B04D35A8E5548C71FDAC
+response body = <?xml version="1.0" encoding="UTF-8" standalone="yes"?><Response><statusCode>172001</statusCode><statusMsg>网络错误</statusMsg></Response>
+request body = <TemplateSMS>
+                    <to>15234044204</to> 
+                    <appId>8a216da85557cb1501555c138d87062a</appId>
+                    <templateId>1</templateId>
+                    <datas><data>334455</data></datas>
+                  </TemplateSMS>
+request url = https://sandboxapp.cloopen.com:8883/2013-12-26/Accounts/aaf98f894d328b13014d6f7ffaa22bf6/SMS/TemplateSMS?sig=80710B9B9BA3ABA3249C5EF3FFAE6982
+response body = <?xml version="1.0" encoding="UTF-8" standalone="yes"?><Response><statusCode>000000</statusCode><TemplateSMS><dateCreated>20160714165451</dateCreated><smsMessageSid>31854be9cc854dc6b6412156a6eed67c</smsMessageSid></TemplateSMS></Response>

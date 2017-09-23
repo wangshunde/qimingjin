@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/swiper.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+	<script src="__PUBLIC__/Home/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<title>{$tittle}</title>
+	<script>
+        var deviceHeight = document.documentElement.clientHeight;
+        if(deviceHeight > 627){
+            deviceHeight = 627;
+        }
+        document.documentElement.style.fontSize = deviceHeight / 6.27 + 'px';
+    </script>
+	<style>
+	body{font-size: 16px;}
+	.form{margin:0 0.1rem;}
+	.con{height:0.4rem;line-height: 0.4rem;border-bottom: 1px solid #f1f1f1;}
+	.form label{display: block;width:25%;float: left;color: #404040;}
+	.form input{border: 0;height: 0.4rem;width:70%;float: right;border-bottom: 1px solid #f1f1f1;font-size: 14px;text-align: right;padding-right: 0.1rem;}
+	.form textarea{display: block;width:100%;font-size: 16px;height:2rem;resize: none;}
+	.sub{height:0.4rem;width:2rem;margin:0 auto;margin-top: 2.2rem;}
+	.sub input{clear: both;width: 100%;height:100%;font-size: 16px;color: #fff;background-color: #85b2f6;border-radius: 0.5rem;border: none;} 
+	</style>
+</head>
+<body>
+<form action="{:U('Index/jianliAction')}" method="post" id="fm">
+	<div class="form">
+		<div class="con">
+			<label for="name">姓名&nbsp;</label>
+			<input type="text" name="name" id="name" placeholder="输入姓名" value="{$jianliInfo.vc_name}">
+		</div>
+		<div class="con">
+			<label for="age">年龄&nbsp;</label>
+			<input type="text" name="age" id="age" placeholder="输入年龄" value="{$jianliInfo.vc_age}">
+		</div>
+		<div class="con">
+			<label for="sex">性别&nbsp;</label>
+			<input type="text" name="sex" id="sex" placeholder="输入性别" value="{$jianliInfo.vc_sex}">
+		</div>
+		<div class="con">
+			<label for="educational">学历&nbsp;</label>
+			<input type="text" name="educational" id="educational" placeholder="输入学历" value="{$jianliInfo.vc_educational}">
+		</div>
+		<div class="con">
+			<label for="graduation">毕业学校&nbsp;</label>
+			<input type="text" name="graduation" id="graduation" placeholder="输入毕业学校" value="{$jianliInfo.vc_graduation_school}">
+		</div>
+		<div class="con">
+			<label for="major">专业&nbsp;</label>
+			<input type="text" name="major" id="major" placeholder="输入专业" value="{$jianliInfo.vc_major}">
+		</div>
+		<div class="con">
+			<label for="job">期望岗位&nbsp;</label>
+			<input type="text" name="job" id="job" placeholder="输入期望岗位" value="{$jianliInfo.vc_ideal_job}">
+		</div>
+		<div class="con">
+			<label for="telephone">联系方式&nbsp;</label>
+			<input type="text" name="telephone" id="telephone" placeholder="输入联系方式" value="{$jianliInfo.vc_telephone}">
+		</div>
+		<div class="con">
+			<label for="exprience">实习经验&nbsp;</label>
+			<textarea name="exprience" id="exprience" placeholder="简单描述自己的工作经验" rows="10" cols="20">{$jianliInfo.vc_exprience}</textarea>
+		</div>
+	</div>
+	<div class="sub">
+		<input type="button" value="提交" onclick="checkForm()">
+	</div>
+</form>
+<script>
+
+	function checkForm(){
+	    var name = $("#name").val();
+	    var tel = $("#telephone").val();
+	    if(name==null || name==''){
+	        alert("姓名不能为空!");
+	        return false;
+	    }else if(tel==null || tel==''){
+	        alert("联系方式不能为空!");
+	        return false;
+	    }else{
+	        $("#fm").submit();
+	    }
+	}
+</script>
+</body>
+</html>
